@@ -1,0 +1,45 @@
+<h1>Edit Country</h1>
+
+<style>
+  
+  a:visited {
+    color:blue;
+  }
+  
+  
+  a:hover {
+    color: red;
+  }
+      
+  </style>
+  
+<!--displays the errors-->
+<% if(errors != undefined){ %>
+    <ul>
+        <% errors.forEach((error) => { %>
+            <li>
+                <%= error.msg %>
+            </li><% }) %>
+    </ul>
+  <% } %>
+
+<!--input form to update a country-->
+<form action="/updateCountry" method="POST">
+    
+    <% countries.forEach((country) =>
+    { %>
+    <label>Country Code</label>
+    <input type="text" name="code" value="<%= country.co_code %>"><br>
+    <label>Country Name</label>
+    <input type="text" name="name" value="<%= country.co_name %>"><br>
+    <label>Country Details</label>
+    
+    <textarea type="text" name="details" rows="4" cols="50"><%= country.co_details %></textarea>
+    <input type="submit" value="Update">
+  </form> 
+  
+  <% }) %>
+
+  <!--Links back to home page and the previous page-->
+  <a href="/">Home Page</a>
+  <a href="/listCountries">Previous Page</a>

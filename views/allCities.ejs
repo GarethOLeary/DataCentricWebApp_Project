@@ -1,0 +1,38 @@
+<h1>All City Details</h1>
+
+<style>
+/* visited link */
+a:visited {
+  color:blue;
+}
+
+/* mouse over link */
+a:hover {
+  color: red;
+}
+    
+</style>
+<!--form that displays the detials of the city-->
+<form action="/AllCities" method="POST">
+    <% cities.forEach((city) =>
+    { %>
+    <label>City Code</label>
+    <input type="text" name="code" value="<%= city.cty_code %>"><br>
+    <label>City Name</label>
+    <input type="text" name="name" value="<%= city.cty_name %>"><br>
+    <label>City Population</label>
+    <input type="number" name="pop" value="<%= city.population %>"><br>
+    <label>By The Sea</label>
+    <input type="text" name="sea" value="<%= city.isCoastal %>"><br>
+    <label>Area(KM)</label>
+    <input type="number" name="area" value="<%= city.areaKM %>"><br><br>
+    <label>Country Code</label>
+    <input type="text" name="country" value="<%= city.co_code %>"><br>
+    <label>Country Name</label>
+    <input type="text" name="cname" value="<%= city.co_name %>"><br><br>
+        
+  </form> 
+  <% }) %>
+<!--links to homepage and previous page-->
+<a href="/">Home Page</a>
+<a href="/listCities">Previous Page</a>

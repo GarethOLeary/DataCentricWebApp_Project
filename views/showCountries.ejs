@@ -1,0 +1,66 @@
+<style>
+
+    table{
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th{
+        border: 1px solid black;
+        background-color: #4CAF50;
+  color: white;
+    }
+
+    td{
+        border: 1px solid black;
+        
+    }
+
+    tr:nth-child(even) {background-color: #f2f2f2;}
+
+    
+
+
+
+
+a:visited {
+  color:blue;
+}
+
+
+a:hover {
+  color: red;
+}
+    
+    
+</style>
+
+
+
+<h1>Countries</h1>
+<!--button to add countries-->
+<a href="/addCountries"><button>Add Country</button></a><br><br>
+<!--table thatn displays all the countries and their details-->
+<table>
+    <tr>
+        <th>Country Code</th>
+        <th>Country Name</th>
+        <th>Country Details</th>
+        <th>Action</th>
+        <th></th>
+        
+    </tr>
+    <% countries.forEach((country) =>
+    { %>
+    <tr>
+        <td><%= country.co_code %></td>
+        <td><%= country.co_name %></td>
+        <td><%= country.co_details %></td>
+        <!--links to update and delete countries-->
+        <td><a href="/updateCountry/<%= country.co_code %>">Update</a></td>
+        <td><a href="/deleteCountry/<%= country.co_code %>">Delete</a></td>
+    </tr>
+    <% }) %>
+</table>
+<br>
+<!--link to homepage-->
+<a href="./">Home Page</a>

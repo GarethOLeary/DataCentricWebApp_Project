@@ -1,0 +1,61 @@
+<style>
+
+table{
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th{
+        border: 1px solid black;
+        background-color: #4CAF50;
+  color: white;
+    }
+
+    td{
+        border: 1px solid black;
+        
+    }
+
+    tr:nth-child(even) {background-color: #f2f2f2;}
+
+
+a:visited {
+  color:blue;
+}
+
+
+a:hover {
+  color: red;
+}
+    
+</style>
+
+<h1>Cities</h1>
+<!--displays the cities-->
+<table>
+    <tr>
+        <th>City Code</th>
+        <th>Country Code</th>
+        <th>City Name</th>
+        <th>Population</th>
+        <th>By The Sea</th>
+        <th>Area</th>
+        <th></th>
+    </tr>
+    <% cities.forEach((city) =>
+    { %>
+    <tr>
+        <td><%= city.cty_code %></td>
+        <td><%= city.co_code %></td>
+        <td><%= city.cty_name %></td>
+        <td><%= city.population %></td>
+        <td><%= city.isCoastal %></td>
+        <td><%= city.areaKM %></td>
+        <!--link to the all the details of a city-->
+        <td><a href="/allCities/<%= city.cty_code %>">All Details</a></td>
+        
+    </tr>
+    <% }) %>
+</table>
+<br>
+<!--link to homepage-->
+<a href="./">Home Page</a>
